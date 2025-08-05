@@ -1,0 +1,41 @@
+.indicator {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+
+    &::before {
+        content: "";
+        height: 2px;
+        width: 100%;
+        background-color: $dark_grey;
+        position: absolute;
+        top: 50%;
+    }
+
+    &__step {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        border: 1px solid $dark_grey;
+        @include flex_centered(row);
+        color: $light_yellow;
+        background-color: $dark_grey;
+        position: relative;
+    }
+    
+    &__completed {
+        border: 2px solid $dark_grey;
+        background-color: $green;
+        
+        & img { 
+            width: 40%;
+        }
+    }
+    
+    &__active {
+        border: 2px solid $dark_grey;
+        background-color: $light_yellow;
+        color: $dark_grey;
+    }
+}

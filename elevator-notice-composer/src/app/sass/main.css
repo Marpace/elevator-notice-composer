@@ -1,0 +1,123 @@
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("../../../public/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat-Medium";
+  src: url("../../../public/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url("../../../public/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+body, button, input, textarea {
+  font-family: "Montserrat-Medium";
+  color: #424242;
+  font-size: 18px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  height: 100svh;
+  padding: 30px 20px;
+  background-color: #FFFDED;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.main-div {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+main, .main-div {
+  width: 100%;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.visible {
+  opacity: 1 !important;
+}
+
+.invisible {
+  opacity: 0 !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.show-flex {
+  display: flex !important;
+}
+
+.show-block {
+  display: block !important;
+}
+
+.indicator {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+.indicator::before {
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: #424242;
+  position: absolute;
+  top: 50%;
+}
+.indicator__step {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid #424242;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #FFFDED;
+  background-color: #424242;
+  position: relative;
+}
+.indicator__completed {
+  border: 2px solid #424242;
+  background-color: #23CE6B;
+}
+.indicator__completed img {
+  width: 40%;
+}
+.indicator__active {
+  border: 2px solid #424242;
+  background-color: #FFFDED;
+  color: #424242;
+}/*# sourceMappingURL=main.css.map */

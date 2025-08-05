@@ -1,0 +1,113 @@
+/////////////////////////  VARIABLES  //////////////////////////////////////////////
+
+//Colors 
+$light_yellow: #FFFDED;
+$dark_grey: #424242;
+$green: #23CE6B;
+$red: #EE4B4B;
+
+//Breakpoints
+$tablet: 768px;
+$laptop: 1280px;
+$desktop: 1600px;
+$desktop_large: 2200px;
+
+
+
+/////////////////////////  MIXINS  //////////////////////////////////////////////
+@mixin flex_centered($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin responsive($size) {
+    @media only screen and (min-width: $size) {
+        @content
+    }
+}
+
+
+///////////////////  FONTS  //////////////////////////////////////////////
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('../../../public/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url('../../../public/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url('../../../public/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+///////////////////  RESET  //////////////////////////////////////////////
+body, button, input , textarea{
+  font-family: "Montserrat-Medium";
+  color: $dark_grey;
+  font-size: 18px;
+}
+  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  height: 100svh;
+  padding: 30px 20px;
+  background-color: $light_yellow;
+  position: relative;
+  overflow: hidden;
+  @include flex_centered(column);
+  justify-content: flex-start;
+}
+
+.main-div {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+main, .main-div {
+  width: 100%;
+}
+
+.disabled {
+  pointer-events: none;
+}
+.visible {
+  opacity: 1 !important;
+}
+
+.invisible {
+  opacity: 0 !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.show-flex {
+  display: flex !important;
+}
+.show-block {
+  display: block !important;
+}
