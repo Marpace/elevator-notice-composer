@@ -28,10 +28,19 @@ export const stepQuestions = [
     },
     {
         stepNumber: 4,
-        question: "Is this the first notice being sent today?",
+        question: "Are all elevators operational?",
         options: [
             "Yes",
             "No",
+        ]
+    },
+    {
+        stepNumber: 5,
+        question: "When will the elevator/s be repaired?",
+        options: [
+            "Tomorrow",
+            "Monday",
+            "Unknown",
         ]
     },
 ]

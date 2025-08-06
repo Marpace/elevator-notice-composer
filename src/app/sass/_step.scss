@@ -1,0 +1,28 @@
+.steps-container {
+
+    .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        &__question {
+            text-align: center;
+        }
+        
+        &__options {
+            @include flex_centered(row);
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+
+            &-option {
+                height: 40px;
+                width: 40%;
+                @include flex_centered(row);
+                border: 2px solid $dark_grey;
+
+            }
+        }
+    }
+}

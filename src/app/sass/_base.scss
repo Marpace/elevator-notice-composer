@@ -75,19 +75,16 @@ body {
   padding: 30px 20px;
   background-color: $light_yellow;
   position: relative;
-  overflow: hidden;
+  overflow-y: scroll;
   @include flex_centered(column);
   justify-content: flex-start;
 }
 
-.main-div {
+main, .main-div {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 50px;
-}
-
-main, .main-div {
-  width: 100%;
 }
 
 .disabled {

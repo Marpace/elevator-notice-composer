@@ -1,0 +1,15 @@
+.back-button {
+    height: 40px;
+    border-radius: 10px;
+    background-color: $dark_grey;
+    color: $light_yellow;
+    font-size: 20px;
+    border: none;
+    transition: 100ms;
+
+    &:hover {
+        background-color: $light_yellow;
+        border: 2px solid $dark_grey;
+        color: $dark_grey;
+    }
+}
