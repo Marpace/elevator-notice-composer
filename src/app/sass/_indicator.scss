@@ -17,7 +17,6 @@
         height: 40px;
         width: 40px;
         border-radius: 50%;
-        border: 1px solid $dark_grey;
         @include flex_centered(row);
         color: $light_yellow;
         background-color: $dark_grey;
@@ -37,5 +36,9 @@
         border: 2px solid $dark_grey;
         background-color: $light_yellow;
         color: $dark_grey;
+    }
+
+    &__disabled {
+        background-color: $grey;
     }
 }

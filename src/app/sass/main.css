@@ -101,7 +101,6 @@ header {
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  border: 1px solid #424242;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -121,6 +120,9 @@ header {
   border: 2px solid #424242;
   background-color: #FFFDED;
   color: #424242;
+}
+.indicator__disabled {
+  background-color: #8b8b8b;
 }
 
 .steps-container .step {

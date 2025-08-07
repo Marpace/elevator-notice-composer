@@ -1,4 +1,4 @@
-export const stepQuestions = [
+export const steps = [
     {
         stepNumber: 1,
         question: "Which building is affected?",
@@ -7,7 +7,9 @@ export const stepQuestions = [
             "19",
             "29",
             "33",
-        ]
+        ],
+        completed: false,
+        disabled: false
     },
     {
         stepNumber: 2,
@@ -15,24 +17,30 @@ export const stepQuestions = [
         options: [
             "Initial notice",
             "Update",
-        ]
+        ],
+        completed: false,
+        disabled: false
     },
     {
         stepNumber: 3,
+        question: "Are all elevators operational?",
+        options: [
+            "Yes",
+            "No",
+        ],
+        completed: false,
+        disabled: false
+    },
+    {
+        stepNumber: 4,
         question: "How many elevators are down?",
         options: [
             "1",
             "2",
             "3"
-        ]
-    },
-    {
-        stepNumber: 4,
-        question: "Are all elevators operational?",
-        options: [
-            "Yes",
-            "No",
-        ]
+        ],
+        completed: false,
+        disabled: false
     },
     {
         stepNumber: 5,
@@ -41,6 +49,8 @@ export const stepQuestions = [
             "Tomorrow",
             "Monday",
             "Unknown",
-        ]
+        ],
+        completed: false,
+        disabled: false
     },
 ]

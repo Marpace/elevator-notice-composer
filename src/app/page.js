@@ -7,9 +7,30 @@ import Notice from "./components/Notice";
 
 export default function Home() {
 
-
   const [currentStep, setCurrentStep] = useState(1);
   const [formCompleted, setFormCompleted] = useState(false);
+  const [indicatorStatus, setIndicatorStatus] = useState({
+    1: {
+      completed: false,
+      disabled: false
+    },
+    2: {
+      completed: false,
+      disabled: false
+    },
+    3: {
+      completed: false,
+      disabled: false
+    },
+    4: {
+      completed: false,
+      disabled: false
+    },
+    5: {
+      completed: false,
+      disabled: false
+    },
+  })
   const [choices, setChoices] = useState({
     1: "",
     2: "",
@@ -32,6 +53,7 @@ export default function Home() {
           setCurrentStep={setCurrentStep}
           formCompleted={formCompleted}
           setFormCompleted={setFormCompleted}
+          choices={choices}
           setChoices={setChoices}
         /> 
         <Notice 
