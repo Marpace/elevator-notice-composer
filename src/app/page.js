@@ -4,13 +4,19 @@ import Indicator from "./components/Indicator";
 import Step from "./components/Step";
 import "./sass/main.scss";
 import Notice from "./components/Notice";
-import { compile } from "sass";
 
 export default function Home() {
 
 
   const [currentStep, setCurrentStep] = useState(1);
-  const [formCompleted, setFormCompleted] = useState(true);
+  const [formCompleted, setFormCompleted] = useState(false);
+  const [choices, setChoices] = useState({
+    1: "",
+    2: "",
+    3: null,
+    4: null,
+    5: "",
+  })
 
   return (
     <div className="main-div">
@@ -26,11 +32,12 @@ export default function Home() {
           setCurrentStep={setCurrentStep}
           formCompleted={formCompleted}
           setFormCompleted={setFormCompleted}
+          setChoices={setChoices}
         /> 
         <Notice 
           formCompleted={formCompleted}
         />
-        <button className="back-button">Back</button>
+        <button onClick={() => setCurrentStep(prev => prev - 1)} className={`back-button ${currentStep === 1 ? "hidden" : ""}`}>Back</button>
       </main>
     </div>
   );

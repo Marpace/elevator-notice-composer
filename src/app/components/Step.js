@@ -1,8 +1,21 @@
 import { stepQuestions } from "../data"
 
+
 export default function Step(props) {
+  
+  const handleNextStep = (e) => {
+    //check if form is at the last step, otherwise increase step by one
+    if(props.currentStep < stepQuestions.length) props.setCurrentStep(prev => prev + 1)
+    else props.setFormCompleted(true);
     
-  console.log(stepQuestions[0].options)
+    //set the selected choice to the choices object
+    props.setChoices(prev => {
+      const obj = {...prev};
+      console.log(obj)
+      obj[props.currentStep] = e.target.id;
+      return obj;
+    })
+  }
     
   return (
     <section className={`steps-container ${props.formCompleted ? "hidden" : ""}`}>
@@ -12,7 +25,8 @@ export default function Step(props) {
           <div className="step__options">
             {step.options.map((option, optionIndex) => (
               <div 
-                onClick={() => props.setCurrentStep(step.stepNumber + 1)}
+                id={option}
+                onClick={(e) => handleNextStep(e)}
                 className="step__options-option" 
                 key={optionIndex}>
                   {option}
