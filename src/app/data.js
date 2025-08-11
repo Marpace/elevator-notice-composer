@@ -15,7 +15,7 @@ export const steps = [
         stepNumber: 2,
         question: "Type of notice?",
         options: [
-            "Initial notice",
+            "Initial",
             "Update",
         ],
         completed: false,
@@ -54,3 +54,14 @@ export const steps = [
         disabled: false
     },
 ]
+
+export const outcomes = {
+    "15-Initial-1": "Dear Residents of 15 Singer Court,\n\n Please be advised that one elevator is currently out of service. Our elevator service provider has been contacted for immediate service, and a technician is expected on-site shortly to carry out the necessary repairs.\n\n We recommend planning ahead, as elevator wait times may be longer than usual during this time. We will share further updates as soon as more information becomes available.\n\nThank you for your continued patience and understanding.\n\nSincerely,\nSecurity Team"
+}
+
+//choices 
+// building 
+// type of notice 
+// all elevators operational? 
+// how many elevators down?
+// repair date

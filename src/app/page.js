@@ -4,40 +4,20 @@ import Indicator from "./components/Indicator";
 import Step from "./components/Step";
 import "./sass/main.scss";
 import Notice from "./components/Notice";
+import { steps } from "./data";
 
 export default function Home() {
 
   const [currentStep, setCurrentStep] = useState(1);
   const [formCompleted, setFormCompleted] = useState(false);
-  const [indicatorStatus, setIndicatorStatus] = useState({
-    1: {
-      completed: false,
-      disabled: false
-    },
-    2: {
-      completed: false,
-      disabled: false
-    },
-    3: {
-      completed: false,
-      disabled: false
-    },
-    4: {
-      completed: false,
-      disabled: false
-    },
-    5: {
-      completed: false,
-      disabled: false
-    },
+  const [indicatorStatus, setIndicatorStatus] = useState(() => {
+    const obj = {};
+    steps.forEach(step => {
+      obj[step.stepNumber] = {completed: false, disabled: false}
+    })
+    return obj;
   })
-  const [choices, setChoices] = useState({
-    1: "",
-    2: "",
-    3: null,
-    4: null,
-    5: "",
-  })
+  const [choices, setChoices] = useState({})
 
   return (
     <div className="main-div">
@@ -47,6 +27,7 @@ export default function Home() {
       <main>
         <Indicator 
           currentStep={currentStep}
+          indicatorStatus={indicatorStatus}
         />
         <Step 
           currentStep={currentStep}
@@ -55,9 +36,11 @@ export default function Home() {
           setFormCompleted={setFormCompleted}
           choices={choices}
           setChoices={setChoices}
+          setIndicatorStatus={setIndicatorStatus}
         /> 
         <Notice 
           formCompleted={formCompleted}
+          choices={choices}
         />
         <button onClick={() => setCurrentStep(prev => prev - 1)} className={`back-button ${currentStep === 1 ? "hidden" : ""}`}>Back</button>
       </main>

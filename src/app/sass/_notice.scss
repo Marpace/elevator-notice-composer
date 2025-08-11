@@ -3,6 +3,10 @@
     flex-direction: column;
     gap: 30px;
 
+    &__text {
+        white-space: pre-line;
+    }
+    
     &__warning {
         display: flex;
         align-items: center;

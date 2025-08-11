@@ -1,19 +1,38 @@
+import { useEffect, useState } from "react"
+import { outcomes } from "../data"
+
+
 export default function Notice(props)  {
+
+    const [outcome, setOutcome] = useState(null);
+
+    useEffect(() => {
+        setOutcome(() => {
+            const outcome = Object.values(props.choices).join("-");
+            return outcomes[outcome]
+        })
+    }, [props.choices])
+
+    const copyText = () => {
+        navigator.clipboard.writeText(outcome)
+            .then(() => {
+                alert("Text copied to clipboard!");
+            })
+            .catch(err => {
+                console.error('Failed to copy text: ', err);
+                alert("Failed to copy text. Please try again.");
+            });
+    }
+
     return (
         <section className={`notice ${props.formCompleted ? "" : "hidden"}`}>
-            <p className="notice__text">Dear Residents of 29 Singer Court,<br></br><br></br>
-                Please be advised that two elevators are currently out of service. Our elevator service provider has been contacted, and a technician is expected on-site shortly to carry out the necessary repairs.<br></br><br></br>
-                We recommend planning ahead, as elevator wait times may be longer than usual during this time. We will share further updates as soon as more information becomes available.<br></br><br></br>
-                Thank you for your continued patience and understanding.<br></br><br></br>
-                Sincerely,<br></br>
-                Security Team
-            </p>
+            <p className="notice__text">{outcome}</p>
             <span className="notice__warning">
                 <img src="/icons/attention.svg"></img>
                 <p>Proof read notice before sending</p>
             </span>
             <div className="notice__buttons">
-                <button>
+                <button onClick={copyText}>
                     <img src="/icons/copy.svg"></img>
                     copy
                 </button>

@@ -55,6 +55,15 @@ main, .main-div {
   gap: 50px;
 }
 
+@media only screen and (min-width: 1440px) {
+  main {
+    width: 60%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+  }
+}
+
 .disabled {
   pointer-events: none;
 }
@@ -89,6 +98,16 @@ header {
   width: 100%;
   position: relative;
 }
+@media only screen and (min-width: 1440px) {
+  .indicator {
+    flex-direction: column;
+    height: 500px;
+    width: -moz-fit-content;
+    width: fit-content;
+    position: absolute;
+    left: -50px;
+  }
+}
 .indicator::before {
   content: "";
   height: 2px;
@@ -96,6 +115,14 @@ header {
   background-color: #424242;
   position: absolute;
   top: 50%;
+}
+@media only screen and (min-width: 1440px) {
+  .indicator::before {
+    height: 100%;
+    width: 2px;
+    left: 50%;
+    top: 0;
+  }
 }
 .indicator__step {
   height: 40px;
@@ -158,6 +185,9 @@ header {
   flex-direction: column;
   gap: 30px;
 }
+.notice__text {
+  white-space: pre-line;
+}
 .notice__warning {
   display: flex;
   align-items: center;
@@ -187,6 +217,8 @@ header {
 }
 
 .back-button {
+  width: 100%;
+  max-width: 300px;
   height: 40px;
   border-radius: 10px;
   background-color: #424242;
@@ -194,6 +226,8 @@ header {
   font-size: 20px;
   border: none;
   transition: 100ms;
+  cursor: pointer;
+  margin: auto;
 }
 .back-button:hover {
   background-color: #FFFDED;

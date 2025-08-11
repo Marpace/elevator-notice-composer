@@ -6,21 +6,67 @@ export default function Step(props) {
   const handleNextStep = (e) => {
 
     const choice = e.target.id;
-    console.log(props.choices[2])
 
-    if(props.currentStep === 2 && choice === "Initial notice") {
+    // If it's the initial notice, skip step 3 
+    if(choice === "Initial") {
       props.setCurrentStep(4);
-      
+      props.setIndicatorStatus(prev => {
+        const obj = {...prev};
+        obj[3].disabled = true
+        obj[2].completed = true
+        return obj;
+      })
     }
-    else if(props.currentStep === 4 && props.choices[2] === "Initial notice") props.setFormCompleted(true);
-    else if(props.currentStep === 3 && choice === "Yes") props.setFormCompleted(true); 
-    else if(props.currentStep < steps.length) props.setCurrentStep(prev => prev + 1)
-    else props.setFormCompleted(true);
+
+    //If on step 4 and it's the initial notice, skip step 5 and go straight to the notice
+    else if(props.currentStep === 4 && props.choices[2] === "Initial") {
+      props.setIndicatorStatus(prev => {
+        const obj = {...prev};
+        obj[props.currentStep].completed = true;
+        obj[5].disabled = true;
+        return obj;
+      })
+      props.setFormCompleted(true);
+      props.setCurrentStep(null);
+    }
+    
+    // If all elevators are operational go straight to notice
+    else if(choice === "Yes") {
+      props.setIndicatorStatus(prev => {
+        const obj = {...prev};
+        obj[props.currentStep].completed = true;
+        obj[4].disabled = true;
+        obj[5].disabled = true;
+        return obj;
+      })
+      props.setFormCompleted(true); 
+      props.setCurrentStep(null);
+    }
+
+    // If not at the last step, go to the next step 
+    else if(props.currentStep < steps.length) {
+      props.setIndicatorStatus(prev => {
+        const obj = {...prev};
+        obj[props.currentStep].completed = true
+        return obj;
+      })
+      props.setCurrentStep(prev => prev + 1) 
+    }
+
+    //if all steps are completed, go to the notice
+    else {
+      props.setIndicatorStatus(prev => {
+        const obj = {...prev};
+        obj[props.currentStep].completed = true
+        return obj;
+      })
+      props.setCurrentStep(null);
+      props.setFormCompleted(true);
+    }
     
     //set the selected choice to the choices object
     props.setChoices(prev => {
       const obj = {...prev};
-      console.log(obj)
       obj[props.currentStep] = choice;
       return obj;
     })

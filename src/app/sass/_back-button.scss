@@ -1,4 +1,6 @@
 .back-button {
+    width: 100%;
+    max-width: 300px;
     height: 40px;
     border-radius: 10px;
     background-color: $dark_grey;
@@ -6,6 +8,8 @@
     font-size: 20px;
     border: none;
     transition: 100ms;
+    cursor: pointer;
+    margin: auto;
 
     &:hover {
         background-color: $light_yellow;

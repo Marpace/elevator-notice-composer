@@ -9,8 +9,7 @@ $red: #EE4B4B;
 
 //Breakpoints
 $tablet: 768px;
-$laptop: 1280px;
-$desktop: 1600px;
+$desktop: 1440px;
 $desktop_large: 2200px;
 
 
@@ -86,6 +85,15 @@ main, .main-div {
   display: flex;
   flex-direction: column;
   gap: 50px;
+}
+
+main {
+  @include responsive($desktop) {
+    width: 60%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+  }
 }
 
 .disabled {
