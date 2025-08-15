@@ -105,7 +105,7 @@ header {
     width: -moz-fit-content;
     width: fit-content;
     position: absolute;
-    left: -50px;
+    left: -100px;
   }
 }
 .indicator::before {
@@ -178,6 +178,12 @@ header {
   justify-content: center;
   align-items: center;
   border: 2px solid #424242;
+  cursor: pointer;
+  transition: 100ms;
+}
+.steps-container .step__options-option:hover {
+  color: #FFFDED;
+  background-color: #424242;
 }
 
 .notice {
@@ -187,6 +193,13 @@ header {
 }
 .notice__text {
   white-space: pre-line;
+}
+@media only screen and (min-width: 1440px) {
+  .notice__text {
+    border: 2px solid black;
+    padding: 30px;
+    border-radius: 10px;
+  }
 }
 .notice__warning {
   display: flex;
@@ -205,6 +218,14 @@ header {
   justify-content: center;
   gap: 20px;
 }
+@media only screen and (min-width: 1440px) {
+  .notice__buttons {
+    position: absolute;
+    left: calc(100% + 30px);
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
 .notice__buttons button {
   height: 40px;
   width: 40%;
@@ -214,6 +235,14 @@ header {
   gap: 10px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+@media only screen and (min-width: 1440px) {
+  .notice__buttons button {
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 0 20px;
+  }
 }
 
 .back-button {

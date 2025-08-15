@@ -17,7 +17,7 @@ export default function Home() {
     })
     return obj;
   })
-  const [choices, setChoices] = useState({})
+  const [choices, setChoices] = useState([])
 
   return (
     <div className="main-div">

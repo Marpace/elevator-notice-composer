@@ -21,7 +21,13 @@
                 width: 40%;
                 @include flex_centered(row);
                 border: 2px solid $dark_grey;
+                cursor: pointer;
+                transition: 100ms;
 
+                &:hover {
+                    color: $light_yellow;
+                    background-color: $dark_grey;
+                }
             }
         }
     }
