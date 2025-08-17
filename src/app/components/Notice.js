@@ -26,12 +26,12 @@ export default function Notice(props)  {
         <section className={`notice ${props.formCompleted ? "" : "hidden"}`}>
             {outcome && <p className="notice__text">{outcome}</p>}
             <span className="notice__warning">
-                <img src="/icons/attention.svg"></img>
+                <img src="/attention.svg"></img>
                 <p>Proof read notice before sending</p>
             </span>
             <div className="notice__buttons">
                 <button onClick={handleCopy}>
-                    <img src="/icons/copy.svg"></img>
+                    <img src="/copy.svg"></img>
                     copy
                 </button>
             </div>

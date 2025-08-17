@@ -8,7 +8,7 @@ export default function Indicator(props) {
           <div 
             key={index} 
             className={`indicator__step ${props.indicatorStatus[step.stepNumber].completed ? "indicator__completed" : ""} ${props.currentStep === step.stepNumber ? "indicator__active" : ""} ${props.indicatorStatus[step.stepNumber].disabled ? "indicator__disabled" : ""}`}>
-            {props.indicatorStatus[step.stepNumber].completed ? <img src="/icons/checkmark.svg"></img> : step.stepNumber}
+            {props.indicatorStatus[step.stepNumber].completed ? <img src="/checkmark.svg"></img> : step.stepNumber}
           </div>
         ))}
       </div>
