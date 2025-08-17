@@ -6,18 +6,12 @@ export default function Notice(props)  {
 
     const [outcome, setOutcome] = useState(null);
 
-    // useEffect(() => {
-    //     setOutcome(() => {
-    //         const outcome = Object.values(props.choices).join("-");
-    //         return outcomes[outcome]
-    //     })
-    // }, [props.choices])
-
     useEffect(() => {
         setOutcome(generateNotice(props.choices))
     }, [props.choices])
 
     const handleCopy = () => {
+        //replaces the "\n" with "<br>" to keep formatting when copying to BuildingLink
         navigator.clipboard.writeText(outcome.replace(/\n/g, "<br>"))
             .then(() => {
                 alert("Text copied to clipboard!");
@@ -28,25 +22,9 @@ export default function Notice(props)  {
             });
     }
 
-    // const handleCopy = async () => {
-    //     const htmlContent = outcome.replace(/\n/g, "<br>");
-
-    //     try {
-    //         await navigator.clipboard.write([
-    //         new ClipboardItem({
-    //             'text/html': new Blob([htmlContent], { type: 'text/html' }),
-    //             'text/plain': new Blob([rawText], { type: 'text/plain' }),
-    //         }),
-    //         ]);
-    //         alert('Copied with formatting!');
-    //     } catch (err) {
-    //         console.error('Failed to copy: ', err);
-    //     }
-    // };
-
     return (
         <section className={`notice ${props.formCompleted ? "" : "hidden"}`}>
-            <p className="notice__text">{outcome}</p>
+            {outcome && <p className="notice__text">{outcome}</p>}
             <span className="notice__warning">
                 <img src="/icons/attention.svg"></img>
                 <p>Proof read notice before sending</p>
@@ -56,10 +34,6 @@ export default function Notice(props)  {
                     <img src="/icons/copy.svg"></img>
                     copy
                 </button>
-                {/* <button>
-                    <img src="/icons/edit.svg"></img>
-                    edit
-                </button> */}
             </div>
         </section>
     )

@@ -19,7 +19,7 @@ export default function Step(props) {
     }
 
     //If on step 4 and it's the initial notice, skip step 5 and go straight to the notice
-    else if(props.currentStep === 4 && props.choices[1] === "Initial") {
+    else if(props.currentStep === 4 && props.choices["1"] === "Initial") {
       props.setIndicatorStatus(prev => {
         const obj = {...prev};
         obj[props.currentStep].completed = true;
@@ -64,9 +64,9 @@ export default function Step(props) {
     
     //set the selected choice to the choices object
     props.setChoices(prev => {
-      const arr = [...prev];
-      arr.push(choice);
-      return arr;
+      const obj = {...prev};
+      obj[props.currentStep.toString()] = choice
+      return obj;
     })
   }
     

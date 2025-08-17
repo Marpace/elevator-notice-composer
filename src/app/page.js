@@ -17,7 +17,27 @@ export default function Home() {
     })
     return obj;
   })
-  const [choices, setChoices] = useState([])
+  const [choices, setChoices] = useState(() => {
+    const obj = {};
+    steps.forEach(step => {
+      obj[step.stepNumber] = null;
+    })
+    return obj;
+  })
+
+  const resetSteps = () => {
+    setCurrentStep(1);
+    setChoices({});
+    setFormCompleted(false);
+    setIndicatorStatus(prev => {
+      const obj = {};
+      steps.forEach(step => {
+        obj[step.stepNumber] = {completed: false, disabled: false}
+      })
+      return obj;
+    })
+  }
+
 
   return (
     <div className="main-div">
@@ -42,7 +62,8 @@ export default function Home() {
           formCompleted={formCompleted}
           choices={choices}
         />
-        <button onClick={() => setCurrentStep(prev => prev - 1)} className={`back-button ${currentStep === 1 ? "hidden" : ""}`}>Back</button>
+        {/* <button onClick={() => setCurrentStep(prev => prev - 1)} className={`back-button ${currentStep === 1 ? "hidden" : ""}`}>Back</button> */}
+        <button onClick={resetSteps} className={`back-button ${currentStep === 1 ? "hidden" : ""}`}>Reset</button>
       </main>
     </div>
   );
