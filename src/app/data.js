@@ -46,18 +46,6 @@ export const steps = [
     // },
 ]
 
-// export const outcomes = {
-//     "15-Initial-1": "Dear Residents of 15 Singer Court,\n\n Please be advised that one elevator is currently out of service. Our elevator service provider has been contacted for immediate service, and a technician is expected on-site shortly to carry out the necessary repairs.\n\n We recommend planning ahead, as elevator wait times may be longer than usual during this time. We will share further updates as soon as more information becomes available.\n\nThank you for your continued patience and understanding.\n\nSincerely,\nSecurity Team",
-//     "19-Initial-2":
-//     "19-Initial-3":
-//     "29-Initial-2":
-//     "29-Initial-3":
-//     "33-Initial-2":
-//     "33-Initial-3":
-    
-// }
-
-
 export const generateNotice = (choices) => {
 
     console.log(choices)
@@ -82,7 +70,7 @@ export const generateNotice = (choices) => {
     }
 
     //all elevators are now operational
-    else if(choices["1"] === "Yes") {
+    else if(choices["3"] === "Yes") {
         return `${greeting} We are please to inform you that all elevators are now operational\n\n ${signature}`
     }
 

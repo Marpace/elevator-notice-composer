@@ -24,6 +24,7 @@
                 width: 40%;
                 @include flex_centered(row);
                 border: 2px solid $dark_grey;
+                background-color: $light_yellow;
                 cursor: pointer;
                 transition: 100ms;
 

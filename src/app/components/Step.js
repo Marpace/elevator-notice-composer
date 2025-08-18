@@ -77,13 +77,13 @@ export default function Step(props) {
           <p className="step__question">{step.question}</p>
           <div className="step__options">
             {step.options.map((option, optionIndex) => (
-              <div 
+              <button 
                 id={option}
                 onClick={(e) => handleNextStep(e)}
                 className="step__options-option" 
                 key={optionIndex}>
                   {option}
-              </div>
+              </button>
             ))}
           </div>
         </div>

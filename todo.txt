@@ -1,0 +1,2 @@
+- handle scenarios with elevator bookings and one elevator down
+- add instructions for sending email through BuildingLink

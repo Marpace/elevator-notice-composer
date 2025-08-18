@@ -170,6 +170,11 @@ header {
   gap: 10px;
   width: 100%;
 }
+@media only screen and (min-width: 1440px) {
+  .steps-container .step__options {
+    flex-direction: column;
+  }
+}
 .steps-container .step__options-option {
   height: 40px;
   width: 40%;
@@ -178,6 +183,7 @@ header {
   justify-content: center;
   align-items: center;
   border: 2px solid #424242;
+  background-color: #FFFDED;
   cursor: pointer;
   transition: 100ms;
 }
@@ -201,17 +207,27 @@ header {
     border-radius: 10px;
   }
 }
-.notice__warning {
+.notice__warning, .notice__link {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.notice__warning img {
+.notice__warning img, .notice__link img {
   width: 25px;
 }
-.notice__warning p {
+.notice__warning p, .notice__link p {
   color: #EE4B4B;
   font-size: 16px;
+}
+.notice__link {
+  cursor: pointer;
+}
+.notice__link img {
+  width: 20px;
+}
+.notice__link p {
+  color: #424242;
+  text-decoration: underline;
 }
 .notice__buttons {
   display: flex;
@@ -243,6 +259,20 @@ header {
     width: fit-content;
     padding: 0 20px;
   }
+}
+@keyframes clicked {
+  0% {
+    background-color: #23CE6B;
+  }
+  100% {
+    background-color: #FFFDED;
+  }
+}
+.notice__buttons .copied {
+  color: #23CE6B;
+  animation-name: clicked;
+  animation-duration: 400ms;
+  border: 1px solid #23CE6B;
 }
 
 .back-button {

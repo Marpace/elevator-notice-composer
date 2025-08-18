@@ -12,7 +12,7 @@
         }
     }
     
-    &__warning {
+    &__warning, &__link {
         display: flex;
         align-items: center;
         gap: 10px;
@@ -23,6 +23,18 @@
         p {
             color: $red;
             font-size: 16px;
+        }
+    }
+
+    &__link {
+        cursor: pointer;
+        
+        img {
+            width: 20px;
+        }
+        p {
+            color: $dark_grey;
+            text-decoration: underline;
         }
     }
     
@@ -51,6 +63,18 @@
                 width: fit-content;
                 padding: 0 20px;   
             }
+        }
+
+        @keyframes clicked {
+            0% {background-color: $green;}
+            100% {background-color: $light_yellow;}
+        }
+
+        .copied {
+            color: $green;
+            animation-name: clicked;
+            animation-duration: 400ms;
+            border: 1px solid $green;
         }
     }
 }

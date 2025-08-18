@@ -24,6 +24,8 @@ export default function Home() {
     })
     return obj;
   })
+  const [textCopied, setTextCopied] = useState(false);
+  
 
   const resetSteps = () => {
     setCurrentStep(1);
@@ -36,6 +38,7 @@ export default function Home() {
       })
       return obj;
     })
+    setTextCopied(false);
   }
 
 
@@ -61,6 +64,8 @@ export default function Home() {
         <Notice 
           formCompleted={formCompleted}
           choices={choices}
+          textCopied={textCopied}
+          setTextCopied={setTextCopied}
         />
         {/* <button onClick={() => setCurrentStep(prev => prev - 1)} className={`back-button ${currentStep === 1 ? "hidden" : ""}`}>Back</button> */}
         <button onClick={resetSteps} className={`back-button ${currentStep === 1 ? "hidden" : ""}`}>Reset</button>
