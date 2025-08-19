@@ -56,27 +56,43 @@ export const generateNotice = (choices) => {
     
     //If only one elevator is down, there is no need to send a notice, unles its building 15 
     if(choices["1"] !== "15" && Object.values(choices).includes("1")) {
-        return `There is no need to send a notice at this time. Please go through the questions again, if another elevator goes down.`
+        return {
+            subject: null,
+            text: `There is no need to send a notice at this time. Please go through the questions again, if another elevator goes down.`
+        }
+
     }
 
     //check if all elevators are down in any building
     else if((choices["1"] === "15" && Object.values(choices).includes("2")) || Object.values(choices).includes("3")) {
-        return `${greeting} Please be advised that all elevators are currently out of service. Our elevator service provider has been contacted for immediate service, and a technician is expected on-site shortly to carry out the necessary repairs.\n\n ${update} Should you require assistance, please contact the Security Desk at 416-250-1430 or 416-590-0155.\n\n${signature}`
+        return {
+            subject: "ALL ELEVATORS OUT OF SERVICE",
+            test: `${greeting} Please be advised that all elevators are currently out of service. Our elevator service provider has been contacted for immediate service, and a technician is expected on-site shortly to carry out the necessary repairs.\n\n ${update} Should you require assistance, please contact the Security Desk at 416-250-1430 or 416-590-0155.\n\n${signature}`
+        }
     }
 
     // first notice informing of elevator/s down
     else if(choices["2"] === "Initial") {
-        return `${greeting} Please be advised that ${choices["4"]} elevator${choices["1"] === "15" ? " is" : "s are"} currently out of service. Our elevator service provider has been contacted for immediate service, and a technician is expected on-site shortly to carry out the necessary repairs.\n\n We recommend planning ahead, as elevator wait times may be longer than usual during this time. ${update}\n\n${signature}`
+        return {
+            subject: `${choices["4"]} ELEVATOR${Number(choices["4"]) > 1 ? "S" : ""} OUT OF SERVICE`,
+            text: `${greeting} Please be advised that ${choices["4"]} elevator${choices["1"] === "15" ? " is" : "s are"} currently out of service. Our elevator service provider has been contacted for immediate service, and a technician is expected on-site shortly to carry out the necessary repairs.\n\n We recommend planning ahead, as elevator wait times may be longer than usual during this time. ${update}\n\n${signature}`
+        } 
     }
 
     //all elevators are now operational
     else if(choices["3"] === "Yes") {
-        return `${greeting} We are please to inform you that all elevators are now operational\n\n ${signature}`
+        return {
+            subject: "ALL ELEVATORS ARE OPERATIONAL",
+            text: `${greeting} We are please to inform you that all elevators are now operational\n\n ${signature}`
+        } 
     }
 
     //update and elevator
     else if(choices["3"] === "No") {
-        return `${greeting} Please be advised that ${choices["4"]} elevator${choices["1"] === "15" ? " is" : "s are"} currently out of service until further notice. The elevator technician was unable to complete the repair today.\n\n We recommend planning ahead, as elevator wait times may be longer than usual during this time. ${update}\n\n${signature}`
+        return {
+            subject: "UPDATE RE. ELEVATORS",
+            text: `${greeting} Please be advised that ${choices["4"]} elevator${choices["1"] === "15" ? " is" : "s are"} currently out of service until further notice. The elevator technician was unable to complete the repair today.\n\n We recommend planning ahead, as elevator wait times may be longer than usual during this time. ${update}\n\n${signature}`
+        } 
     }
 }
 //choices 

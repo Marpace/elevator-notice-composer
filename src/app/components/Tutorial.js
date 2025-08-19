@@ -1,11 +1,29 @@
+import { useState, useRef } from "react"
+
 export default function Tutorial() {
+
+  const [showInstructions, setShowInstructions] = useState(false);
+
+
+  const targetRef = useRef(null);
+
+  const handleToggle = () => {
+    setShowInstructions(prev => prev ? false : true)
+    setTimeout(() => {
+      targetRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
+
+
+
   return (
     <section className="tutorial">
-      <span className="tutorial__toggle">
+      <span onClick={handleToggle} className="tutorial__toggle">
         <img src="/elevator-notice-composer/info.svg"></img>
-        <p>How to send email via BuildingLink</p>
+        <p>How to send email from BuildingLink</p>
       </span>
-      <div className="tutorial__instructions">
+      <div ref={targetRef} className={`tutorial__instructions ${showInstructions ? "" : "hidden"}`}>
         <h3>Follow these steps to send an email from BuildingLink</h3>
         <p>1. click on "Communicate" from the menu on the left hand side, then click on "Send email"</p>
         <img src="/elevator-notice-composer/BuildingLink/bl-1.png"></img>

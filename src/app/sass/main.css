@@ -197,6 +197,14 @@ header {
   flex-direction: column;
   gap: 30px;
 }
+.notice__subject {
+  border: 2px solid #424242;
+  border-radius: 10px;
+  height: 40px;
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+}
 .notice__text {
   white-space: pre-line;
 }
@@ -255,8 +263,7 @@ header {
 }
 @media only screen and (min-width: 1440px) {
   .notice__buttons button {
-    width: -moz-fit-content;
-    width: fit-content;
+    width: 200px;
     padding: 0 20px;
   }
 }
@@ -297,7 +304,7 @@ header {
 .tutorial {
   display: flex;
   flex-direction: column;
-  gap: 200px;
+  gap: 300px;
 }
 .tutorial__toggle {
   width: 100%;
@@ -317,4 +324,23 @@ header {
 }
 .tutorial__toggle p {
   text-decoration: underline;
+}
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.tutorial__instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  animation-name: show;
+  animation-duration: 200ms;
+  scroll-margin-top: 100px;
+}
+.tutorial__instructions img {
+  box-shadow: 4px 4px 28px -9px;
 }/*# sourceMappingURL=main.css.map */
