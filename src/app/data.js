@@ -67,7 +67,7 @@ export const generateNotice = (choices) => {
     else if((choices["1"] === "15" && Object.values(choices).includes("2")) || Object.values(choices).includes("3")) {
         return {
             subject: "ALL ELEVATORS OUT OF SERVICE",
-            test: `${greeting} Please be advised that all elevators are currently out of service. Our elevator service provider has been contacted for immediate service, and a technician is expected on-site shortly to carry out the necessary repairs.\n\n ${update} Should you require assistance, please contact the Security Desk at 416-250-1430 or 416-590-0155.\n\n${signature}`
+            text: `${greeting} Please be advised that all elevators are currently out of service ${choices["2"] === "Initial" ? ". Our elevator service provider has been contacted for immediate service, and a technician is expected on-site shortly to carry out the necessary repairs." : "until further notice. The elevator technician was unable to complete the repair today."}\n\n ${update} Should you require assistance, please contact the Security Desk at 416-250-1430 or 416-590-0155.\n\n${signature}`
         }
     }
 

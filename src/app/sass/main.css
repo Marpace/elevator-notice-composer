@@ -248,6 +248,7 @@ header {
     left: calc(100% + 30px);
     width: -moz-fit-content;
     width: fit-content;
+    flex-direction: column;
   }
 }
 .notice__buttons button {
@@ -263,7 +264,7 @@ header {
 }
 @media only screen and (min-width: 1440px) {
   .notice__buttons button {
-    width: 200px;
+    width: 210px;
     padding: 0 20px;
   }
 }
