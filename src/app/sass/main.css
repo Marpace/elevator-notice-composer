@@ -292,4 +292,29 @@ header {
   background-color: #FFFDED;
   border: 2px solid #424242;
   color: #424242;
+}
+
+.tutorial {
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+}
+.tutorial__toggle {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.tutorial__toggle img {
+  display: none;
+}
+@media only screen and (min-width: 1440px) {
+  .tutorial__toggle img {
+    display: block;
+    width: 20px;
+  }
+}
+.tutorial__toggle p {
+  text-decoration: underline;
 }/*# sourceMappingURL=main.css.map */

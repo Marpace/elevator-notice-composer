@@ -5,6 +5,7 @@ import Step from "./components/Step";
 import "./sass/main.scss";
 import Notice from "./components/Notice";
 import { steps } from "./data";
+import Tutorial from "./components/Tutorial";
 
 export default function Home() {
 
@@ -69,6 +70,7 @@ export default function Home() {
         />
         {/* <button onClick={() => setCurrentStep(prev => prev - 1)} className={`back-button ${currentStep === 1 ? "hidden" : ""}`}>Back</button> */}
         <button onClick={resetSteps} className={`back-button ${currentStep === 1 ? "hidden" : ""}`}>Reset</button>
+        <Tutorial />
       </main>
     </div>
   );

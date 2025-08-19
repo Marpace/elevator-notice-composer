@@ -29,10 +29,10 @@ export default function Notice(props)  {
                 <img src="/elevator-notice-composer/attention.svg"></img>
                 <p>PROOF READ NOTICE BEFORE SENDING!</p>
             </span>
-            <span className="notice__link">
+            {/* <span className="notice__link">
                 <img src="/elevator-notice-composer/info.svg"></img>
                 <p>How to send email via BuildingLink</p>
-            </span>
+            </span> */}
             <div className="notice__buttons">
                 <button onClick={handleCopy} className={props.textCopied ? "copied" : ""}>
                     <img src={`/elevator-notice-composer/${props.textCopied ? "copy-green" : "copy"}.svg`}></img>
